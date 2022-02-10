@@ -73,9 +73,14 @@ object Test2 : BuildType({
     }
 
     steps {
-        gradle {
-            tasks = "test"
-        }
+            script {
+                name = "asdf22"
+                scriptContent = """
+                    set -x
+                    node --version
+                """.trimIndent()
+                dockerImage = "node:14.17"
+            }       
     }
 
 })
